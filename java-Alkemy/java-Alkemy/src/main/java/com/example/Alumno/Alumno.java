@@ -9,18 +9,15 @@ import com.example.javaAlkemy.*;
 
 @Entity
 @Table(name = "Student")
-public class Alumno extends Persona{
-	@Column(name = "file",
-			nullable = false,
-			updatable = true)
+public class Alumno extends Persona {
+	@Column(name = "file", nullable = false, updatable = true)
 	private long legajo;
-	
-	
+
 	public Alumno(String nombre, String apellido, String dni, long legajo) {
-		super(nombre,apellido,dni);
+		super(nombre, apellido, dni);
 		this.legajo = legajo;
 	}
-	
+
 	public Alumno() {
 	}
 
@@ -37,5 +34,4 @@ public class Alumno extends Persona{
 		return "Alumno [legajo=" + legajo + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + "]";
 	}
 
-	
 }
