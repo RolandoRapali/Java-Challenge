@@ -12,8 +12,8 @@ public class AlumnoConfig {
 	@Bean
 	CommandLineRunner commandLineRunner(AlumnoRepositorio repositorio) {
 		return args ->{
-			Alumno Rolando = new Alumno("Rolando", "Rapali", "38355972", 12546332l);
-			Alumno Axel = new Alumno("Axel", "Bel", "38355941", 12546332l);
+			Alumno Rolando = new Alumno("Rolando", "Rapali", "44524785", 12546332l);
+			Alumno Axel = new Alumno("Axel", "Bel", "12354778", 12546332l);
 			
 			repositorio.saveAll(List.of(Rolando, Axel));
 		};

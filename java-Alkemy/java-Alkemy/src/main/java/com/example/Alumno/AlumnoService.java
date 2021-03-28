@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service("SeguridadAplicacionConfig")
+@Service
 public class AlumnoService {
 	
 	private final AlumnoRepositorio alumnoRepositorio;
@@ -18,7 +18,6 @@ public class AlumnoService {
 	
 		public List<Alumno> getAlumnos(){
 			return alumnoRepositorio.findAll();
-					//List.of(new Alumno("Rolando", "Rapali", "38355972", 12546332l));
 		}
 		
 		public Optional<Alumno> traerAlumno(String dni) throws Exception{

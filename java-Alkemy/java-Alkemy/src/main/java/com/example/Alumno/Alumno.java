@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.MVC.JavaAlkemy.*;
+import com.example.javaAlkemy.*;
 
 @Entity
 @Table(name = "Student")

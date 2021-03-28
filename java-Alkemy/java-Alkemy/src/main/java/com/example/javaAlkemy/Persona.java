@@ -1,4 +1,4 @@
-package com.MVC.JavaAlkemy;
+package com.example.javaAlkemy;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
