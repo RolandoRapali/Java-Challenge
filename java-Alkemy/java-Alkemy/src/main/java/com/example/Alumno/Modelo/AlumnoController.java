@@ -1,4 +1,4 @@
-package com.example.Alumno;
+package com.example.Alumno.Modelo;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,10 +7,13 @@ import java.util.Arrays;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import com.example.Alumno.Repositorio.AlumnoRepositorio;
+import com.example.Alumno.Servicio.AlumnoService;
+
 import org.springframework.stereotype.Controller;
 
 @RestController
-@RequestMapping(path = "v1/student")
+@RequestMapping("v1/student")
 public class AlumnoController {
 
 	private final AlumnoService alumnoService;
@@ -28,7 +31,7 @@ public class AlumnoController {
 	}
 
 	@GetMapping(path = "/all")
-	public @ResponseBody Iterable<Alumno> getAllAlumno() {
+	public Iterable<Alumno> getAllAlumno() {
 		return alumnoRepositorio.findAll();
 	}
 

@@ -1,10 +1,12 @@
-package com.example.Alumno;
+package com.example.Alumno.Modelo;
 
 import java.util.List;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import com.example.Alumno.Repositorio.AlumnoRepositorio;
 
 @Configuration
 public class AlumnoConfig {

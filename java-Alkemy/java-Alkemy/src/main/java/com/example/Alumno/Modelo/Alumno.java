@@ -1,16 +1,16 @@
-package com.example.Alumno;
+package com.example.Alumno.Modelo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
+//import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
-import com.example.javaAlkemy.*;
 
 @Entity
-@Table(name = "Student")
+@Table(name = "student")
 public class Alumno extends Persona {
-	@Column(name = "file", nullable = false, updatable = true)
+	@Column(name = "file", nullable = false)
 	private long legajo;
 
 	public Alumno(String nombre, String apellido, String dni, long legajo) {

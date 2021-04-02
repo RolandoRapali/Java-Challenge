@@ -1,10 +1,10 @@
-package com.example.Profesor;
+package com.example.Alumno.Modelo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import com.example.javaAlkemy.*;
+//import com.example.javaAlkemy.*;
 
 @Entity
 @Table(name="Professor")

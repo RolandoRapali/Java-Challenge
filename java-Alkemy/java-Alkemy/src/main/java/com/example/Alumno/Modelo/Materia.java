@@ -1,4 +1,4 @@
-package com.example.Materia;
+package com.example.Alumno.Modelo;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -12,23 +12,27 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
-import com.example.Alumno.Alumno;
-import com.example.Profesor.Profesor;
-
 @Entity
-@Table(name = "subject")
+@Table(name = "subject",
+		uniqueConstraints = {
+				@UniqueConstraint(columnNames = "name", name = "subject_name_unique")
+		}
+)
 public class Materia {
 	@Id
 	@SequenceGenerator(name = "subject_sequence", sequenceName = "subject_sequence", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "subject_sequence")
 	private int id;
 
-	@Column(name = "name", nullable = false, unique = true, length = 50)
+	@Column(name = "name", nullable = false, length = 50)
 
 	private String nombre;
 	@Column(name = "schedule")
@@ -38,16 +42,21 @@ public class Materia {
 
 	private String descripcion;
 
-	@OneToMany
-
-	@JoinColumn(name = "Profesor_dni")
-
+	@ManyToMany
+	@JoinTable(
+			name = "registration_professor",
+			joinColumns = @JoinColumn(name = "professor_dni"),
+			inverseJoinColumns = @JoinColumn(name = "subject_id")
+			)
+	
 	private List<Profesor> lstProfesor;
 
-	@OneToMany
-
-	@JoinColumn(name = "Student_dni")
-
+	@ManyToMany
+	@JoinTable(
+			name = "registration_student",
+			joinColumns = @JoinColumn(name = "student_dni"),
+			inverseJoinColumns = @JoinColumn(name = "subject_id")
+			)
 	private List<Alumno> lstAlumno;
 	@Column(name = "quota")
 	private int cupoActual;

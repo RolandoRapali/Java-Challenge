@@ -1,8 +1,11 @@
-package com.example.Profesor;
+package com.example.Alumno;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.Alumno.Modelo.Profesor;
+import com.example.Alumno.Repositorio.ProfesorRepositorio;
 
 public class ProfesorService {
 

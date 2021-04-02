@@ -1,10 +1,13 @@
-package com.example.Alumno;
+package com.example.Alumno.Servicio;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.example.Alumno.Modelo.Alumno;
+import com.example.Alumno.Repositorio.AlumnoRepositorio;
 
 @Service
 public class AlumnoService {
