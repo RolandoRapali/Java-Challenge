@@ -1,4 +1,4 @@
-package com.example.Alumno.Modelo;
+package com.example.Alumno.Control;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,19 +7,18 @@ import java.util.Arrays;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import com.example.Alumno.Modelo.Alumno;
 import com.example.Alumno.Repositorio.AlumnoRepositorio;
 import com.example.Alumno.Servicio.AlumnoService;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 
-@RestController
+@Controller
 @RequestMapping("v1/student")
 public class AlumnoController {
 
 	private final AlumnoService alumnoService;
-
-	@Autowired
-	private AlumnoRepositorio alumnoRepositorio;
 
 	public AlumnoController(AlumnoService alumnoService) {
 		this.alumnoService = alumnoService;
@@ -30,9 +29,10 @@ public class AlumnoController {
 		alumnoService.agregarNuevoAlumno(alumno);
 	}
 
-	@GetMapping(path = "/all")
-	public Iterable<Alumno> getAllAlumno() {
-		return alumnoRepositorio.findAll();
+	@GetMapping("/all")
+	public String/*Iterable<Alumno>*/ getAllAlumno(Model model) {
+		model.addAttribute("Students_list", alumnoService.getAlumnos());//getAlumnos();
+		return "students_list";
 	}
 
 }
