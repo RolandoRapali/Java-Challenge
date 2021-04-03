@@ -4,6 +4,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
@@ -42,7 +43,7 @@ public class Materia {
 
 	private String descripcion;
 
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.PERSIST)
 	@JoinTable(
 			name = "registration_professor",
 			joinColumns = @JoinColumn(name = "professor_dni"),
@@ -63,8 +64,10 @@ public class Materia {
 	@Column(name = "max_quota")
 	private int cupoMaximo;
 
-	public Materia(String nombre, LocalTime horario, String descripcion, List<Profesor> lstProfesor,
-			List<Alumno> lstAlumno, int cupoActual, int cupoMaximo) {
+	public Materia() {
+	}
+	
+	public Materia(String nombre, LocalTime horario, String descripcion, int cupoActual, int cupoMaximo) {
 		super();
 		this.nombre = nombre;
 		this.horario = horario;
@@ -73,6 +76,16 @@ public class Materia {
 		this.lstAlumno = new ArrayList<>();
 		this.cupoActual = cupoActual;
 		this.cupoMaximo = cupoMaximo;
+	}
+
+	
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getNombre() {
@@ -131,7 +144,7 @@ public class Materia {
 		this.cupoMaximo = cupoMaximo;
 	}
 
-	public Alumno traerAlumno(long legajo) {
+	/*public Alumno traerAlumno(long legajo) {
 		int contador = 0;
 		Alumno alumno = null;
 		while (alumno == null) {
@@ -149,5 +162,5 @@ public class Materia {
 		}
 		cupoActual++;
 		return materia.getLstAlumno().add(alumno);
-	}
+	}*/
 }

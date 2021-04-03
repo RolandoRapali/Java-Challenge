@@ -12,9 +12,9 @@ import javax.persistence.UniqueConstraint;
 @MappedSuperclass
 //@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Persona {
-	@Column(name = "first_name", nullable = false, length = 50)
+	@Column(name = "name", nullable = false, length = 50)
 	protected String nombre;
-	@Column(name = "last_name", nullable = false, length = 50)
+	@Column(name = "surname", nullable = false, length = 50)
 	protected String apellido;
 	@Id
 	@Column(name = "dni", nullable = false, length = 10)
