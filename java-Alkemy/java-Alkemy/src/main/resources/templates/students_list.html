@@ -4,30 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
     <title>>Ordinary School</title>
 </head>
 <body>
-    <div class="container">    
-        <thead class="thead-dark">
-
-            <table>
-                <tr>
-                    <th>name</th>
-                    <th>surname</th>
-                    <th>dni</th>
-                    <th>file</th>
-                </tr>
-            </table>
-        </thead>
-        <tbody>
-            <th:block th:each="studentt: ${entity}">
-            <tr>
-                <td>[[${entity.dni}]]</td> 
-
-            </tr>
-            </th:block>
-
-        </tbody>
+    <div class="container text-center">    
+        <div>
+            <h1>list of students</h1>
+        </div>
     </div>
+            <table class= "table table-bordered">
+                <thead class="thead-dark">
+
+                    <tr>
+                        <th>name</th>
+                        <th>surname</th>
+                        <th>dni</th>
+                        <th>file</th>
+                     </tr>
+                </thead>
+                <tbody>
+            
+                     <tr th:block th:each="student: ${students}">
+                         <td th:text="${student.nombre}"></td> 
+				        <td th:text="${student.apellido}"></td>
+				        <td th:text="${student.dni}"></td>
+				        <td th:text="${student.legajo}"></td>
+                      </tr>
+                </th:block>
+                 </tbody>
+            </table>
 </body>
 </html>
