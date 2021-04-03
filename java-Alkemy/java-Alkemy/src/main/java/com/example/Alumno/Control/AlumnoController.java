@@ -15,7 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
 @Controller
-@RequestMapping("v1/student")
+//@RequestMapping("v1/student")
 public class AlumnoController {
 
 	private final AlumnoService alumnoService;
@@ -29,9 +29,13 @@ public class AlumnoController {
 		alumnoService.agregarNuevoAlumno(alumno);
 	}
 
-	@GetMapping("/all")
-	public String/*Iterable<Alumno>*/ getAllAlumno(Model model) {
-		model.addAttribute("Students_list", alumnoService.getAlumnos());//getAlumnos();
+	@GetMapping("/students")
+	public String getAllAlumno(Model model) throws Exception{
+		List<Alumno> alumnos = alumnoService.getAlumnos();
+		if(alumnos == null) {
+			new Exception("esta vacio");
+		}
+		model.addAttribute("Students_list", alumnos);
 		return "students_list";
 	}
 

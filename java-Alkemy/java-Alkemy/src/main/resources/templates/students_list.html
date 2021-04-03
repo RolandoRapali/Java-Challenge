@@ -20,9 +20,9 @@
             </table>
         </thead>
         <tbody>
-            <th:block th:each="studentt: ${Students_list}">
+            <th:block th:each="studentt: ${entity}">
             <tr>
-                
+                <td>[[${entity.dni}]]</td> 
 
             </tr>
             </th:block>
