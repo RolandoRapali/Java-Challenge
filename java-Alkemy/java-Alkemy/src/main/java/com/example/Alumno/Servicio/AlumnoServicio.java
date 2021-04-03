@@ -10,12 +10,12 @@ import com.example.Alumno.Modelo.Alumno;
 import com.example.Alumno.Repositorio.AlumnoRepositorio;
 
 @Service
-public class AlumnoService {
+public class AlumnoServicio {
 
 	private final AlumnoRepositorio alumnoRepositorio;
 
 	@Autowired
-	public AlumnoService(AlumnoRepositorio alumnoRepositorio) {
+	public AlumnoServicio(AlumnoRepositorio alumnoRepositorio) {
 		this.alumnoRepositorio = alumnoRepositorio;
 	}
 
