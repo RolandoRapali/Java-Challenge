@@ -9,33 +9,29 @@ import org.springframework.web.bind.annotation.*;
 
 import com.example.Alumno.Modelo.Alumno;
 import com.example.Alumno.Repositorio.AlumnoRepositorio;
-import com.example.Alumno.Servicio.AlumnoService;
+import com.example.Alumno.Servicio.AlumnoServicio;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
 @Controller
-//@RequestMapping("v1/student")
-public class AlumnoController {
+public class AlumnoControl {
 
-	private final AlumnoService alumnoService;
+	private final AlumnoServicio alumnoService;
 
-	public AlumnoController(AlumnoService alumnoService) {
+	public AlumnoControl(AlumnoServicio alumnoService) {
 		this.alumnoService = alumnoService;
 	}
 
-	@PostMapping
+	@PostMapping("/students/add")
 	public void registrarNuevoAlumno(@RequestBody Alumno alumno) throws Exception {
 		alumnoService.agregarNuevoAlumno(alumno);
 	}
 
 	@GetMapping("/students")
-	public String getAllAlumno(Model model) throws Exception{
+	public String getAllAlumno(Model model) {
 		List<Alumno> alumnos = alumnoService.getAlumnos();
-		if(alumnos == null) {
-			new Exception("esta vacio");
-		}
-		model.addAttribute("Students_list", alumnos);
+		model.addAttribute("students", alumnos);
 		return "students_list";
 	}
 

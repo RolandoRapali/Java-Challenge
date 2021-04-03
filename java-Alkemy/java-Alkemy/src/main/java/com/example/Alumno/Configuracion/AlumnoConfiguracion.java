@@ -10,7 +10,7 @@ import com.example.Alumno.Modelo.Alumno;
 import com.example.Alumno.Repositorio.AlumnoRepositorio;
 
 @Configuration
-public class AlumnoConfig {
+public class AlumnoConfiguracion {
 
 	@Bean
 	CommandLineRunner commandLineRunnerAlumno(AlumnoRepositorio alumnoRepositorio) {
