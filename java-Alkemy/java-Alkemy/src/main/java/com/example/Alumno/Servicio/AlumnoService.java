@@ -32,9 +32,9 @@ public class AlumnoService {
 	}
 
 	public void agregarNuevoAlumno(Alumno alumno) throws Exception {
-		Optional<Alumno> studentOptional = alumnoRepositorio.findStudentByDni(alumno.getDni());
-		if (studentOptional.isPresent()) {
-			throw new Exception("email taken");
+		Optional<Alumno> estudianteOpcional = alumnoRepositorio.findStudentByDni(alumno.getDni());
+		if (estudianteOpcional.isPresent()) {
+			throw new Exception("el estudiante ya esta registrado");
 		}
 		System.out.println(alumno);
 		alumnoRepositorio.save(alumno);
