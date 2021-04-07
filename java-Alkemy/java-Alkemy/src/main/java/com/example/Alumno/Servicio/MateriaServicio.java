@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.Alumno.Modelo.Alumno;
 import com.example.Alumno.Modelo.Materia;
+import com.example.Alumno.Servicio.*;
 import com.example.Alumno.Repositorio.MateriaRepositorio;
 
 @Service
@@ -24,6 +25,29 @@ public class MateriaServicio {
 	
 	public List<Materia> traerTodasMaterias(){
 		return materiaRepositorio.findAll();
+	}
+	
+	public Materia traerMateria(int id) {
+		return materiaRepositorio.findSubjectById(id);
+	}
+	
+	
+	public Materia traerMateria(String nombre) throws Exception{
+		Materia materia = null;
+		materia = materiaRepositorio.findSubjectByName(nombre);
+		if(materia == null) {
+			throw new Exception("la materia no existe");
+		}
+		return materia;
+	}
+	
+	public Materia inscribirAlumno(Materia materia, Alumno alumno) throws Exception {
+		Alumno alumnoInscripto = alumno;
+		if(alumnoInscripto == null) {
+			throw new Exception("no existe el alumno(InscribirAlumno)");
+		}
+		materia.getLstAlumno().add(alumnoInscripto);
+		return materiaRepositorio.save(materia);		
 	}
 	
 	public List<Materia> alumnoInscripciones(String dni) {

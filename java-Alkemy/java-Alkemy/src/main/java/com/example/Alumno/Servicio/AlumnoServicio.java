@@ -23,17 +23,17 @@ public class AlumnoServicio {
 		return alumnoRepositorio.findAll();
 	}
 
-	public Optional<Alumno> traerAlumno(String dni) throws Exception {
-		Optional<Alumno> estudianteOpcional = alumnoRepositorio.findById(dni);
-		if (estudianteOpcional.isEmpty()) {
-			throw new Exception("No existe el dni");
+	public Alumno traerAlumno(String dni) throws Exception {
+		Alumno estudianteOpcional = alumnoRepositorio.findStudentByDni(dni);
+		if (estudianteOpcional == null) {
+			throw new Exception("No existe el dni(traer alumno)");
 		}
 		return estudianteOpcional;
 	}
 
 	public void agregarNuevoAlumno(Alumno alumno) throws Exception {
-		Optional<Alumno> estudianteOpcional = alumnoRepositorio.findStudentByDni(alumno.getDni());
-		if (estudianteOpcional.isPresent()) {
+		Alumno estudianteOpcional = alumnoRepositorio.findStudentByDni(alumno.getDni());
+		if (estudianteOpcional != null) {
 			throw new Exception("el estudiante ya esta registrado");
 		}
 		System.out.println(alumno);
