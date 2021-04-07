@@ -17,15 +17,17 @@
                 <thead class="thead-dark">
 
                     <tr>
+                    	<th>id</th>
                         <th>name</th>
                         <th>description</th>
                      </tr>
                 </thead>
                 <tbody>
             
-                     <tr th:block th:each="inscripcion: ${inscripcion}">
-                         <td th:text="${inscripcion.nombre}"></td>
-				        <td th:text="${inscripcion.descripcion}"></td>
+                     <tr th:block th:each="materia: ${materias}">
+                     	<td th:text="${materia.id}"></td>
+                        <td th:text="${materia.nombre}"></td>
+				        <td th:text="${materia.descripcion}"></td>
                       </tr>
                 </th:block>
                  </tbody>

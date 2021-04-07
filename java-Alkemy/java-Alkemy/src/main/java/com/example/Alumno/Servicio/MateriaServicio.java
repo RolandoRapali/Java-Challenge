@@ -58,7 +58,7 @@ public class MateriaServicio {
 			contador = 0;
 			encontrado = false;
 			while (materia.getLstAlumno().size() > contador && !encontrado) {
-				if (materia.getLstAlumno().get(contador).getDni().equals(dni)) {
+				if (materia.getLstAlumno().get(contador).getDni() == dni) {
 					materiasInscripto.add(materia);
 					encontrado = true;
 				}

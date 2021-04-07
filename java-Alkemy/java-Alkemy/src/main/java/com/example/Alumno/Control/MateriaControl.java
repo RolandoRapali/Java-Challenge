@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.Alumno.Modelo.Alumno;
@@ -29,19 +31,30 @@ public class MateriaControl {
 	}
 	
 	@PostMapping("students/registration_student/add")
-	public String registrarAlumno(@RequestParam(name = "dni", defaultValue = "44524785") String dni, Model model) throws Exception {
+	public String registrarAlumno(@RequestParam(name = "dni") String dni, Model model) throws Exception {
 		materiaServicio.inscribirAlumno(materiaServicio.traerMateria(1), alumnoServicio.traerAlumno(dni));
 		
 		return "registration_to_subject";
 	}
+	
+	@RequestMapping(path = "/subjects/all", method = RequestMethod.GET)
+	public String traerMaterias(Model model) {
+		/*for(Materia materia :materiaServicio.traerTodasMaterias()) {
+			System.out.println(materia);
+		}*/
+		List<Materia> materias = materiaServicio.traerTodasMaterias();
+		model.addAttribute("materias", materias);
+		
+		return "subjects";
+		
+	}
 
 	@GetMapping("students/registration_student")
-	public String materiasInscripto(@RequestParam(name = "dni") String dni, Model model) {
+	public String materiasInscripto( String dni, Model model) {
 		
-		//List<Materia> inscripciones = materiaServicio.alumnoInscripciones(dni);
-		Materia materia = materiaServicio.traerMateria(1);
-		model.addAttribute("inscripcion", materia);
-		
+		List<Materia> inscripciones = materiaServicio.alumnoInscripciones("44524785");
+		//Materia materia = materiaServicio.traerMateria(1);
+		model.addAttribute("inscripcion", inscripciones);
 		return "registration_student";
 	}
 	
