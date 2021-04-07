@@ -144,23 +144,13 @@ public class Materia {
 		this.cupoMaximo = cupoMaximo;
 	}
 
-	/*public Alumno traerAlumno(long legajo) {
-		int contador = 0;
-		Alumno alumno = null;
-		while (alumno == null) {
-			if (this.lstAlumno.get(contador).getLegajo() == legajo) {
-				alumno = this.lstAlumno.get(contador);
-			}
-			contador++;
-		}
-		return alumno;
+	@Override
+	public String toString() {
+		return "Materia [id=" + id + ", nombre=" + nombre + ", horario=" + horario + ", descripcion=" + descripcion
+				+ ", lstProfesor=" + lstProfesor + ", lstAlumno=" + lstAlumno + ", cupoActual=" + cupoActual
+				+ ", cupoMaximo=" + cupoMaximo + "]";
 	}
 
-	boolean inscribirseMateria(Materia materia, Alumno alumno) throws Exception {
-		if (traerAlumno(alumno.getLegajo()) != null) {
-			throw new Exception("El alumno ya esta inscripto");
-		}
-		cupoActual++;
-		return materia.getLstAlumno().add(alumno);
-	}*/
+	
+	
 }
