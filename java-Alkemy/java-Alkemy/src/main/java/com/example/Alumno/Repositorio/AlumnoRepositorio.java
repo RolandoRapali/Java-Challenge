@@ -12,6 +12,6 @@ import com.example.Alumno.Modelo.Alumno;
 @Repository
 public interface AlumnoRepositorio extends JpaRepository<Alumno, String> {
 
-	@Query("SELECT a FROM Alumno a WHERE a.dni = ?1")
-	Alumno findStudentByDni(String dni);
+	public abstract Alumno findByDni(String dni);
+	
 }
