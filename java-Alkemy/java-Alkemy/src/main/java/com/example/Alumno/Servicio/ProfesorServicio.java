@@ -10,12 +10,12 @@ import com.example.Alumno.Modelo.Profesor;
 import com.example.Alumno.Repositorio.ProfesorRepositorio;
 
 @Service
-public class ProfesorService {
+public class ProfesorServicio {
 
 	private final ProfesorRepositorio profesorRepositorio;
 
 	@Autowired
-	public ProfesorService(ProfesorRepositorio profesorRepositorio) {
+	public ProfesorServicio(ProfesorRepositorio profesorRepositorio) {
 		this.profesorRepositorio = profesorRepositorio;
 	}
 	
@@ -31,12 +31,12 @@ public class ProfesorService {
 		return profesorOpcional;
 	}
 	
-	public void agregarProfesor(Profesor profesor) throws Exception{
+	/*public void agregarProfesor(Profesor profesor) throws Exception{
 		Optional<Profesor> profesorOpcional = profesorRepositorio.findProfessorByDni(profesor.getDni());
 		if(profesorOpcional.isPresent()) {
 			throw new Exception("el profesor ya esta registrado");
 		}
 		System.out.println(profesor);
 		profesorRepositorio.save(profesor);
-	}
+	}*/
 }
