@@ -28,13 +28,13 @@ public class MateriaServicio {
 	}
 	
 	public Materia traerMateria(int id) {
-		return materiaRepositorio.findSubjectById(id);
+		return materiaRepositorio.findById(id);
 	}
 	
 	
 	public Materia traerMateria(String nombre) throws Exception{
 		Materia materia = null;
-		materia = materiaRepositorio.findSubjectByName(nombre);
+		materia = materiaRepositorio.findByNombre(nombre);
 		if(materia == null) {
 			throw new Exception("la materia no existe");
 		}

@@ -24,7 +24,7 @@ public class AlumnoServicio {
 	}
 
 	public Alumno traerAlumno(String dni) throws Exception {
-		Alumno estudianteOpcional = alumnoRepositorio.findStudentByDni(dni);
+		Alumno estudianteOpcional = alumnoRepositorio.findByDni(dni);
 		if (estudianteOpcional == null) {
 			throw new Exception("No existe el dni(traer alumno)");
 		}
@@ -32,10 +32,10 @@ public class AlumnoServicio {
 	}
 
 	public void agregarNuevoAlumno(Alumno alumno) throws Exception {
-		Alumno estudianteOpcional = alumnoRepositorio.findStudentByDni(alumno.getDni());
+		/*Alumno estudianteOpcional = alumnoRepositorio.findStudentByDni(alumno.getDni());
 		if (estudianteOpcional != null) {
 			throw new Exception("el estudiante ya esta registrado");
-		}
+		}*/
 		System.out.println(alumno);
 		alumnoRepositorio.save(alumno);
 	}
