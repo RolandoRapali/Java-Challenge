@@ -29,12 +29,10 @@ import javax.persistence.UniqueConstraint;
 )
 public class Materia {
 	@Id
-	@SequenceGenerator(name = "subject_sequence", sequenceName = "subject_sequence", allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "subject_sequence")
-	private int id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
 
 	@Column(name = "name", nullable = false, length = 50)
-
 	private String nombre;
 	@Column(name = "schedule")
 	private LocalTime horario;
@@ -52,7 +50,7 @@ public class Materia {
 	
 	private List<Profesor> lstProfesor;
 
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.PERSIST)
 	@JoinTable(
 			name = "registration_student",
 			joinColumns = @JoinColumn(name = "student_dni"),
@@ -80,11 +78,11 @@ public class Materia {
 
 	
 	
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
