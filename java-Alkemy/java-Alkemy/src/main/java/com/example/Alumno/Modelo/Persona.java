@@ -1,16 +1,12 @@
 package com.example.Alumno.Modelo;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.MappedSuperclass;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.NotNull;
+
 
 @MappedSuperclass
-//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Persona {
 	@Column(name = "name", nullable = false, length = 50)
 	protected String nombre;
@@ -30,6 +26,7 @@ public abstract class Persona {
 		this.dni = dni;
 	}
 
+	
 	public String getNombre() {
 		return nombre;
 	}
