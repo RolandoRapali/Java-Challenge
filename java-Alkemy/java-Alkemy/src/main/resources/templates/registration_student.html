@@ -10,26 +10,21 @@
 <body>
     <div class="container text-center h1">    
         <div>
-            <h1>list of students subjects</h1>
+            <h1>new student</h1>
         </div>
     </div>
-            <table class= "table table-bordered">
-                <thead class="thead-dark">
-
-                    <tr>
-                        <th>name</th>
-                        <th>description</th>
-                     </tr>
-                </thead>
-                <tbody>
-            
-                     <tr th:block th:each="inscripcion: ${inscripcion}">
-                         <td th:text="${inscripcion.nombre}"></td>
-				        <td th:text="${inscripcion.descripcion}"></td>
-                      </tr>
-                </th:block>
-                 </tbody>
-            </table>
+            <p>
+                nombre: <span th:text="${alumno.nombre}" />
+            </p>
+            <p>
+                apellido: <span th:text="${alumno.apellido}" />
+            </p>
+            <p>
+                dni: <span th:text="${alumno.dni}" />
+            </p>
+            <p>
+                legajo: <span th:text="${alumno.legajo}" />
+            </p>
     </div>
 </body>
 </html>

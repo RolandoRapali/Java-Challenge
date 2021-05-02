@@ -25,11 +25,11 @@
                 </thead>
                 <tbody>
             
-                     <tr th:block th:each="student: ${students}">
-                         <td th:text="${student.nombre}"></td> 
-				        <td th:text="${student.apellido}"></td>
-				        <td th:text="${student.dni}"></td>
-				        <td th:text="${student.legajo}"></td>
+                     <tr th:block th:each="alumno: ${alumnos}">
+                         <td th:text="${alumno.nombre}"></td> 
+				        <td th:text="${alumno.apellido}"></td>
+				        <td th:text="${alumno.dni}"></td>
+				        <td th:text="${alumno.legajo}"></td>
                       </tr>
                 </th:block>
                  </tbody>
