@@ -10,11 +10,13 @@ public class ManejoExcepcion {
 	
 	@ExceptionHandler(value = {PedidoExcepcion.class})
 	public ResponseEntity<Object> manejoApiPedidoExcepcion(PedidoExcepcion e){
-		HttpStatus badRequest = HttpStatus.BAD_REQUEST;
+		HttpStatus exists = HttpStatus.INTERNAL_SERVER_ERROR;
 		ApiExcepcion apiExcepcion = new ApiExcepcion(
 				e.getMessage(),
-				badRequest
+				exists
 				);
-		return new ResponseEntity<>(apiExcepcion, badRequest);
+		return new ResponseEntity<>(apiExcepcion, exists);
 	}
+	
+	
 }
