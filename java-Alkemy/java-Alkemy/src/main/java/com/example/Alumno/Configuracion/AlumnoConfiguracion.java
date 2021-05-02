@@ -1,3 +1,4 @@
+
 package com.example.Alumno.Configuracion;
 
 import java.util.List;
@@ -16,9 +17,10 @@ public class AlumnoConfiguracion {
 	CommandLineRunner commandLineRunnerAlumno(AlumnoRepositorio alumnoRepositorio) {
 		return args -> {
 			Alumno Rolando = new Alumno("Rolando", "Rapali", "44524785", 12546332l);
-			Alumno Axel = new Alumno("Axel", "Bel", "12354778", 12546332l);
+			Alumno Axel = new Alumno("Axel", "Bel", "12354778", 12546345l);
 
 			alumnoRepositorio.saveAll(List.of(Rolando, Axel));
 		};
 	}
+
 }
